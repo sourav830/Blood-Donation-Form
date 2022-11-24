@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+        <style>
+            body{
+                margin: 0px;
+                padding: 0px;
+                background-color: rgb(77, 213, 213);
+                font-family: Arial, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>User Record List</h1>
+            <form action="#">
+            <div class="mb-3">
+                <label for="inputusername" class="col-sm-2 col-form-label">User name</label>
+                <input type="username" class="form-control" id="username" placeholder="Input username">
+            </div>
+            <div class="invalid-feedback">
+                Enter a valid email
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            </div>
+            <div class="invalid-feedback">
+                Enter a valid email
+            </div>
+            <div>
+                <label for="exampleDataList" class="form-label">Enter Blood Group</label>
+                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="A+">
+                <datalist id="datalistOptions">
+                  <option value="A+">
+                  <option value="B+">
+                  <option value="O+">
+                  <option value="O-">
+                  <option value="AB+">
+                </datalist>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Enter address</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="Inputnumber" class="col-sm-2 col-form-label">Input Number</label>
+                <input type="Inputnumber" class="form-control" id="inputnumber" placeholder="Input number">
+            </div>
+            <div class="invalid-feedback">
+                Enter a valid email
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea2" class="form-label">Any other detail regarding your medical heath</label>
+                <textarea class="form-control" id="medicalheath" rows="3"></textarea>
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+            </form>
+        </div>
+        <script type="text/javascript">
+            document.getElementById('username').addEventListener('blur', validateUsername);
+            document.getElementById('email').addEventListener('blur', validateEmail);
+            document.getElementById('inputnumber').addEventListener('blur', validateInputnumber);
+
+            function validateUsername() {
+                const name = document.getElementById('username');
+                const re = /^[a-zA-Z]{2,10}$/;
+    
+                if(!re.test(username.value)) {
+                name.classList.add('is-invalid');
+            }
+             else {
+                name.classList.remove('is-invalid');
+            }
+            }
+            function validateEmail() {
+                const email = document.getElementById('email');
+                const re = /^([a-zA-Z0-9_\.\-]+)@([a-zA-Z0-9_\.\-]+)\.([a-zA-Z]{2,5})$/;
+
+                if(!re.test(email.value)) {
+                    email.classList.add('is-invalid');
+            }
+             else {
+                email.classList.remove('is-invalid');
+                email.classList.add('is-valid');
+            }
+            }
+            function validateInputnumber() {
+                const inputnumber = document.getElementById('inputnumber');
+                const re = /^\(?\d{3}\)?[.-]?\d{3}[.-]?\d{3}[.-]?\d{4}$/;
+
+                if(!re.test(inputnumber.value)) {
+                    inputnumber.classList.add('is-invalid');
+            } else {
+                inputnumber.classList.remove('is-invalid');
+                inputnumber.classList.add('is-valid');
+            }
+            }
+        </script>
+    </body>
+</html>
